@@ -13,12 +13,11 @@ end
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development do
-  gem 'sqlite3'
+  gem 'capistrano-rails', '~> 1.1'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -77,7 +76,7 @@ group :development do
   gem 'spring'
   gem 'mysql2', '~> 0.3.18'
 
-  
+
   gem 'dotenv-rails', :groups => [:development, :test]
 
   gem "cocoon"
@@ -85,4 +84,3 @@ group :development do
 
 
 end
-
