@@ -26,8 +26,6 @@ notifications:
       - gesiel.was.f@gmail.com
       - vitorbertulucci@hotmail.com
 branches:
-  only:
-
-    - edit_topico       
+  only:       
   
 
