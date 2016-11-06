@@ -82,5 +82,6 @@ group :development do
   gem "cocoon"
   gem "nested_form_fields", ">= 0.7.8"
 
+ruby "2.3.1"
 
 end
