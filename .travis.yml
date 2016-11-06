@@ -5,7 +5,8 @@ services:
   - mysql
 
 before_install:
-  - mysql -e 'create database myapp_test;' -uroot
+  - mysql -e 'create database myapp_test;' -u root -p
+  - root
 
 script:
   - bundle exec spring binstub --all
