@@ -15,7 +15,6 @@ test: &test
   database: avalia_mais_test
   pool: 5
   username: root
-  password: root
   host: localhost
 
 production:
