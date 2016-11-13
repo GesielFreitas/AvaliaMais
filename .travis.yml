@@ -2,28 +2,28 @@
 language: ruby
 
 services:
-  - mysql
+    - mysql
 
-before_install:
-  - mysql -u root -e 'create database myapp_test;'
+before_script:
+    - cp config/database.yml.travis config/database.yml
+    - mysql -e 'create database myapp_test;' -uroot
 
 script:
-  - bundle exec spring binstub --all
-  - bundle install
-  - bundle exec rake db:load_config
-  - bundle exec rake db:drop
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - bundle exec rake spec
+      - bundle exec spring binstub --all
+      - bundle install
+      - bundle exec rake db:load_config
+      - bundle exec rake db:create
+      - bundle exec rake db:migrate
+      - bundle exec rspec
 
 rvm:
-  - 2.3.1
+    - 2.3.1
 
 notifications:
-  email:
-    recipients:
-      - gesiel.was.f@gmail.com
-      - vitorbertulucci@hotmail.com
+    email:
+        recipients:
+          - gesiel.was.f@gmail.com
+          - vitorbertulucci@hotmail.com
 branches:
-  only:
-    - master
+    only:
+        - master
