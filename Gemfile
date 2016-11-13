@@ -13,6 +13,7 @@ end
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 group :production do
+  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -82,6 +83,6 @@ group :development do
   gem "cocoon"
   gem "nested_form_fields", ">= 0.7.8"
 
-ruby "2.2.3"
+ruby "2.3.1"
 
 end
