@@ -1,29 +1,30 @@
-
 language: ruby
-
 services:
-    - mysql
-
+- mysql
 before_script:
-    - cp config/database.yml.travis config/database.yml
-    - mysql -e 'create database myapp_test;' -uroot
-
+- cp config/database.yml.travis config/database.yml
+- mysql -e 'create database myapp_test;' -uroot
 script:
-      - bundle exec spring binstub --all
-      - bundle install
-      - bundle exec rake db:load_config
-      - bundle exec rake db:create
-      - bundle exec rake db:migrate
-      - bundle exec rspec
-
+- bundle exec spring binstub --all
+- bundle install
+- bundle exec rake db:load_config
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rspec
 rvm:
-    - 2.3.1
-
+- 2.3.1
 notifications:
-    email:
-        recipients:
-          - gesiel.was.f@gmail.com
-          - vitorbertulucci@hotmail.com
+  email:
+    recipients:
+    - gesiel.was.f@gmail.com
+    - vitorbertulucci@hotmail.com
 branches:
-    only:
-        - master
+  only:
+  - master
+deploy:
+  provider: heroku
+  app: avalia-mais-gcs		
+  api_key:
+    secure: JFd0mo1jV/nOmSNpJqkmg8hkSmgLhw6fY4qdhBVwTap1Vb4446piZqolv1/tVdYk/3ua51O8Vk2gze4PZJbuTwmRszQQUIOWC8c9MWavBLHhrVBYiBNrRHE0f62Hex+t5HnwuBzieoGDuaJ/71VYo2O5tDzX/kyZY5FhdyRV1/B8/hy8/SGs+ur3Knf1503f9N4KWwSE7zSlB3uY9Ix+Oz2j8b1wUQIM420Zz6nDg9uTbdjQLTeBFO/Oa9BHpByHHbz0x8X3G0TEGOqrE5ZWVR6dDwefysgS0BDl/nAEnGkdI+zllX6o3hwIlGjJVHWDIB54NtC6V6+3U5s/BQ9nlNlHJrlJsH+ILIi91OD5rds4PuD95QUjoN7/Z3uGCgBFNk9aOoyk5awfANrDm7ajsEy221MghMjFgmIa4136p3EPUiTkVRFeIaqnSQXsgynfmgBLS88lnSbVl/uudyDWrq7OzevVkn3GAaqX2wYwTyqX2MOevUxOgxp7IOe99qb16L7Eamxy5tqAYWqixiwr/hNY5i7qnyn6kkJpJr/1THLFy1Ba5ZO/MPxQPUWUSxfT5OjFnbFrG1te7UkWSNbLy0bzlvEuzu4/YT1yCFTcPxA8y+UjPQv49f5rT4iK8rhx5OhBM73prpQKQ1X6rrVw2L62d/WdwsOTbssfSrDSqDs=
+  on:
+     branch: master	
