@@ -1,6 +1,6 @@
 default: &default
     adapter: mysql2
-    username: root	
+    username: root
     encoding: utf8
     pool: 5
     timeout: 5000
@@ -11,12 +11,9 @@ development:
     password: root	
 
 test: &test
+    <<: *default
     database: avalia_mais_test
-    adapter: mysql2
-    username: teste	
-    encoding: utf8
-    pool: 5
-    timeout: 5000
+    
 
 production:
     <<: *default

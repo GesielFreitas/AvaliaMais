@@ -1,4 +1,4 @@
 test:
   adapter: mysql2
   database: avalia_mais_test
-  username: teste
+  username: root
