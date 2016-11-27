@@ -1,4 +1,4 @@
 test:
   adapter: mysql2
-  database: aonde_test
-  username: root
+  database: avalia_mais_test
+  username: teste
