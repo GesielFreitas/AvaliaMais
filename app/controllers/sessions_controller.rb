@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:session][:password])
 			log_in user
 			# redirect_to user_show_path(user), notice: 'Login realizado com sucesso'
-			redirect_to home_path, notice: 'Login realizado com sucesso'
+			redirect_to current_user, notice: 'Login realizado com sucesso'
 		else 
 			flash.now[:notice] = 'Login ou senha inválidos'
 			render 'new'
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:user_id] = nil
+		sign_out
 		flash.now[:notice] = 'Logout efetuado com sucesso'
 		redirect_to home_path
 	end

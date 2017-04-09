@@ -1,6 +1,6 @@
 default: &default
     adapter: mysql2
-    username: root
+    username: bfbf9a1efd87f8
     encoding: utf8
     pool: 5
     timeout: 5000
@@ -17,7 +17,10 @@ test: &test
 
 production:
     <<: *default
-    database: avalia_mais_production
+    host: us-cdbr-iron-east-03.cleardb.net
+    database: heroku_0eed1d02dde2e3b
+    password: 990d5abd
+
 
 cucumber:
   <<: *test
